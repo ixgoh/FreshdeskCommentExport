@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Freshdesk Comment Generator</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css?h=1616733a656511a8afe810601f186f33">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css?h=1585abf9beaf49802b3a80bf813edceb">
+    <link rel="stylesheet" href="assets/css/styles.min.css?h=a157608eaacf168bc04b1668f95bc888">
+</head>
+
+<body>
+
+    <script type="text/javascript">
+        function checkedRandom() {
+            if (document.getElementById('inlineRadio1').checked) {
+                document.getElementById('randomChecked').style.display = 'block';
+            }
+            else document.getElementById('randomChecked').style.display = 'none';
+        }
+    </script>
+
+    <div class="login-dark">
+        <form action="script.php" method="post">
+            <h2 class="sr-only">Login Form</h2>
+
+            <div class="illustration">
+                <i class="icon ion-ios-locked-outline"></i>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">
+                        <input type="text" class="form-control" autocomplete="off" placeholder="Freshdesk Domain" name="domain"/>
+                    </div>
+
+                    <div class="col-5">
+                        <label class="form-control-plaintext" style="color:gray;">.freshdesk.com</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="number" class="form-control" autocomplete="off" placeholder="Ticket Number (from)" name="minTicket"/>
+                <input type="number" class="form-control" autocomplete="off" placeholder="Ticket Number (to)" name="maxTicket"/>
+            </div>
+
+            <div class="form-group">
+                <div class="form-check form-check-inline">
+                    <label class="form-control-plaintext" style="color:gray;">Generate by:</label>
+                    <input class="form-check-input" type="radio" name="genOptions" id="inlineRadio1" value="random" onclick="javascript:checkedRandom();">
+                    <label class="form-check-label" for="inlineRadio1" style="color:gray;">Random</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="genOptions" id="inlineRadio2" value="sequential" onclick="javascript:checkedRandom();" checked>
+                    <label class="form-check-label" for="inlineRadio2" style="color:gray;">Sequentially</label>
+
+                </div>
+            </div>
+
+            <div class="form-group" >
+                <input type="number" class="form-control" name="generateNum" placeholder="Number to generate" id="randomChecked" style="display: none" autocomplete="off"/>
+            </div>
+
+            <div class="form-group">
+                <input type="email" class="form-control" name="id" placeholder="Freshdesk Email ID" autocomplete="off"/>
+                <input type="password" class="form-control" name="password" placeholder="Password" autocomplete="off"/>
+            </div>
+
+            <div class="form-group">
+                <input class="btn btn-primary btn-block" type="submit" name="submit">
+            </div>
+
+            <div class="form-group">
+                <p style="color:gray; font-size:12px; text-align: center;">Freshdesk Comment Generator by ixgoh</p>
+                <p style="color:gray; font-size:12px; text-align: center;">API by Freshdesk</p>
+            </div>
+        </form>
+    </div>
+
+    <script src="assets/js/jquery.min.js?h=83e266cb1712b47c265f77a8f9e18451"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js?h=63715b63ee49d5fe4844c2ecae071373"></script>
+
+</body>
+
+</html>
