@@ -19,6 +19,20 @@
             }
             else document.getElementById('randomChecked').style.display = 'none';
         }
+
+        function checkLoginMode() {
+            if (document.getElementById('loginRadio1').checked) {
+                document.getElementById('apiChecked').style.display = 'block';
+                document.getElementById('emailChecked1').style.display = 'none';
+                document.getElementById('emailChecked2').style.display = 'none';
+            }
+            else if (document.getElementById('loginRadio2').checked) {
+                console.log("LOL");
+                document.getElementById('apiChecked').style.display = 'none';
+                document.getElementById('emailChecked1').style.display = 'block';
+                document.getElementById('emailChecked2').style.display = 'block';
+            }
+        }
     </script>
 
     <div class="login-dark">
@@ -48,7 +62,7 @@
 
             <div class="form-group">
                 <div class="form-check form-check-inline">
-                    <label class="form-control-plaintext" style="color:gray;">Generate by:</label>
+                    <label class="form-control-plaintext" style="color:gray; padding-right: 10px;">Generate by:</label>
                     <input class="form-check-input" type="radio" name="genOptions" id="inlineRadio1" value="random" onclick="javascript:checkedRandom();">
                     <label class="form-check-label" for="inlineRadio1" style="color:gray;">Random</label>
                 </div>
@@ -65,8 +79,26 @@
             </div>
 
             <div class="form-group">
-                <input type="email" class="form-control" name="id" placeholder="Freshdesk Email ID" autocomplete="off"/>
-                <input type="password" class="form-control" name="password" placeholder="Password" autocomplete="off"/>
+                <div class="form-check form-check-inline">
+                    <label class="form-control-plaintext" style="color:gray; padding-right: 10px;">Login by:</label>
+                    <input class="form-check-input" type="radio" name="loginMode" id="loginRadio1" value="apiLogin" onclick="javascript:checkLoginMode();">
+                    <label class="form-check-label" for="loginRadio1" style="color:gray;">API</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="loginMode" id="loginRadio2" value="emailLogin" onclick="javascript:checkLoginMode();">
+                    <label class="form-check-label" for="loginRadio2" style="color:gray;">Email & Password</label>
+
+                </div>
+            </div>
+
+            <div class="form-group" >
+                <input type="text" class="form-control" name="apiKey" placeholder="API Key" id="apiChecked" style="display: none"/>
+            </div>
+
+            <div class="form-group">
+                <input type="email" class="form-control" name="id" placeholder="Freshdesk Email ID" id="emailChecked1" autocomplete="off" style="display: none"/>
+                <input type="password" class="form-control" name="password" placeholder="Password" id="emailChecked2" autocomplete="off" style="display: none"/>
             </div>
 
             <div class="form-group">

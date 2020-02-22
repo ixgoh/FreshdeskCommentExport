@@ -57,7 +57,7 @@ function curl($ticketId, $username, $password, $domain)
  * @param array $data All comments in Ticket
  * @return array
  */
-function getIndividualComments($data){
+function getIndividualComments($data) {
     $comments = array();
 
     if (sizeof($data) == 0) {
@@ -150,9 +150,16 @@ function prepExec($id, $username, $password, $domain) {
  */
 $csv = prepareCsv();
 
-$username = $_POST['id'];
-$password = $_POST['password'];
+$authMode = $_POST['loginMode'];
 $domain = $_POST['domain'];
+
+if ($authMode == "apiLogin"){
+    $username = $_POST['apiKey'];
+    $password = "";
+} else if ($authMode == "emailLogin") {
+    $username = $_POST['id'];
+    $password = $_POST['password'];
+}
 
 if ($_POST['genOptions'] == "sequential") {
     for ($id = $_POST['minTicket']; $id <= $_POST['maxTicket']; $id++) {

@@ -12,7 +12,6 @@
 
     "require": {
         "league/csv": "^9.5",
-        "squizlabs/php_codesniffer": "*",
         "curl/curl": "^2.2",
         "ext-json": "^1.7",
         "ext-curl": "*"
