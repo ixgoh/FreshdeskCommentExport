@@ -32,6 +32,7 @@ use League\Csv\Writer;
 function curl($ticketId, $username, $password, $domain)
 {
     $curl = new Curl();
+    $ca = __DIR__ . "/curl-ca-bundle.crt";
 
     $curl->setOpt(CURLOPT_RETURNTRANSFER, true);
     $curl->setOpt(CURLOPT_ENCODING, "");
@@ -39,6 +40,7 @@ function curl($ticketId, $username, $password, $domain)
     $curl->setOpt(CURLOPT_TIMEOUT, 0);
     $curl->setOpt(CURLOPT_FOLLOWLOCATION, true);
     $curl->setOpt(CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
+    $curl->setOpt(CURLOPT_CAINFO, $ca);
     $curl->setOpt(CURLOPT_HTTPHEADER, array(
         "Content-Type: application/x-www-form-urlencoded"
     ));
@@ -116,7 +118,7 @@ function downloadCsv() {
 
     date_default_timezone_set('Asia/Kuala_Lumpur');
 
-    $filename = "FreshdeskComments - " . date("Y-m-d h-i-s");
+    $filename = "FreshdeskComments - " . date("Y-m-d H-i-s");
     header('Content-Type: text/csv; charset=UTF-8');
     header('Content-Description: File Transfer');
     header("Content-Disposition: attachment; filename=$filename.csv");
